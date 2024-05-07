@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NajwaRisya</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3e5f5; 
+      color: #880e4f; 
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      text-align: center;
+    }
+    .pink-text {
+      color: #ff4081; 
+    }
+    .pink-bg {
+      background-color: #ff4081; 
+    }
+  </style>
+</head>
+<body>
+  <div id="app" class="container">
+    <h1 class="pink-text">Hallo, Silahkan Masukkan Nama Anda</h1>
+    <p>Tuliskan Nama Anda Dibawah Ini:</p>
+    <input type="text" v-model="name" @input="changeColor">
+    <p :style="{ color: textColor }">Halo, {{ name }}</p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        name: '',
+        textColor: '#880e4f' // warna teks default
+      },
+      methods: {
+        changeColor() {
+          this.textColor = this.name.length > 0 ? '#ff4081' : '#880e4f'; // ganti warna teks menjadi pink jika ada nama yang dimasukkan
+        }
+      }
+    });
+  </script>
+</body>
+</html>
